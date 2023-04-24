@@ -1,0 +1,15 @@
+/* 
+---- This is styling for the NavigationTwoToneIcon
+---- It makes the icon blink at the location to draw attention
+*/
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
