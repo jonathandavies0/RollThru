@@ -1,4 +1,5 @@
-import SimpleMap from "./components/GoogleMaps";
+import React from "react";
+import SimpleMap from "./components/GoogleMaps.jsx";
 
 export function App() {
   return (
@@ -9,3 +10,4 @@ export function App() {
     </div>
   );
 }
+

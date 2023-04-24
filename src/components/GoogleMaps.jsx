@@ -1,15 +1,31 @@
-import GoogleMapReact from "google-map-react";
 import React from "react";
+import { useEffect, useState } from "react";
+import GoogleMapReact from "google-map-react";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 export default function SimpleMap() {
+  const [currLocation, setCurrLocation] = useState({});
+    useEffect(()=>{ 
+      getLocation();
+    }, []);
+
+    const getLocation = () =>{
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position);
+        const {latitude, longitude} = position.coords;
+        setCurrLocation({latitude, longitude});
+      });
+    }
+
+  console.log("Lat: " + currLocation.latitude)
+  console.log("Long: " + currLocation.longitude)
   const defaultProps = {
     center: {
-      lat: 10.99835602,
-      lng: 77.01502627,
+      lat: currLocation.latitude,
+      lng: currLocation.longitude,
     },
-    zoom: 11,
+    zoom: 15,
   };
 
   return (
@@ -20,7 +36,7 @@ export default function SimpleMap() {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
+        <AnyReactComponent lat={currLocation.latitude} lng={currLocation.longitude} text="My Marker" /> 
       </GoogleMapReact>
     </div>
   );
