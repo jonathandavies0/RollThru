@@ -1,12 +1,20 @@
 import NavigationTwoToneIcon from "@mui/icons-material/NavigationTwoTone";
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import GoogleMapReact from "google-map-react";
 import React, { useEffect, useState } from "react";
 import "./SimpleMap.css";
+
 const AnyReactComponent = ({ lat, lng }) => (
   <div style={{ position: "absolute", transform: "translate(-50%, -50%)" }}>
     <NavigationTwoToneIcon
       style={{ color: "red", animation: "blink 1s infinite" }}
     />
+  </div>
+);
+
+const sessionIcon = ({ lat, lng }) => (
+  <div style={{ position: "absolute", transform: "translate(-50%, -50%)" }}>
+    <PlaceOutlinedIcon style={{ color: "blue" }} />
   </div>
 );
 
